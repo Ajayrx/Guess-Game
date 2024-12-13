@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Guessing Game</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: url('https://source.unsplash.com/1920x1080/?abstract,gradient') no-repeat center center/cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 450px;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            font-variant: small-caps;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        input {
+            padding: 12px;
+            margin: 15px 0;
+            width: calc(100% - 40px);
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        button {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        button:hover {
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            transform: translateY(-2px);
+        }
+        .hidden {
+            display: none;
+        }
+        .message {
+            margin-top: 15px;
+            font-size: 18px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+            input {
+                font-size: 16px;
+            }
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            input {
+                font-size: 14px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Number Guessing Game</h1>
+        <p>Guess the number between <strong>1</strong> and <strong>100</strong>.</p>
+        <input type="number" id="guess" placeholder="Enter your guess">
+        <button id="guess-btn" onclick="checkGuess()">Guess</button>
+        <button id="reset-btn" class="hidden" onclick="resetGame()">Play Again</button>
+        <p id="message" class="message"></p>
+        <p id="attempts" class="message"></p>
+    </div>
+
+    <script>
+        // Initial Game Setup
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        // Sound Effects
+        const successSound = new Audio('https://www.soundjay.com/button/beep-07.wav');
+        const errorSound = new Audio('https://www.soundjay.com/button/beep-10.wav');
+
+        function checkGuess() {
+            const guessedNumber = Number(document.getElementById('guess').value);
+            const message = document.getElementById('message');
+            const attemptsDisplay = document.getElementById('attempts');
+            const guessBtn = document.getElementById('guess-btn');
+            const resetBtn = document.getElementById('reset-btn');
+
+            attempts++;
+            if (guessedNumber > randomNumber) {
+                message.textContent = "Lower number, please!";
+                errorSound.play();
+            } else if (guessedNumber < randomNumber) {
+                message.textContent = "Higher number, please!";
+                errorSound.play();
+            } else {
+                message.textContent = "🎉 Congrats! You guessed it!";
+                attemptsDisplay.textContent = `It took you ${attempts} attempts.`;
+                guessBtn.classList.add("hidden"); // Hide the Guess button
+                resetBtn.classList.remove("hidden"); // Show the Reset button
+                successSound.play();
+            }
+        }
+
+        function resetGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a new number
+            attempts = 0;
+
+            // Reset UI
+            document.getElementById('message').textContent = "";
+            document.getElementById('attempts').textContent = "";
+            document.getElementById('guess').value = "";
+            document.getElementById('guess-btn').classList.remove("hidden");
+            document.getElementById('reset-btn').classList.add("hidden");
+        }
+    </script>
+</body>
+</html>
