@@ -10,7 +10,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            background: url('https://source.unsplash.com/1920x1080/?abstract,gradient') no-repeat center center/cover;
+            background: url('image-Guess-Game.jpg') no-repeat center center/cover;
             color: white;
             min-height: 100vh;
             display: flex;
@@ -18,12 +18,13 @@
             align-items: center;
         }
         .container {
-            background: rgba(0, 0, 0, 0.8);
+            background: linear-gradient(45deg, rgb(241, 103, 195), rgba(107, 238, 243, 0.71), rgb(246, 89, 89));
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             width: 90%;
             max-width: 450px;
+            font-weight: bold;
             transition: transform 0.3s ease;
         }
         .container:hover {
@@ -100,7 +101,7 @@
 <body>
     <div class="container">
         <h1>Random Number Guessing Game</h1>
-        <p>Guess the number between <strong>1</strong> and <strong>100</strong>.</p>
+        <p>Guess the number between <strong>1</strong> and <strong>1000</strong>.</p>
         <input type="number" id="guess" placeholder="Enter your guess">
         <button id="guess-btn" onclick="checkGuess()">Guess</button>
         <button id="reset-btn" class="hidden" onclick="resetGame()">Play Again</button>
@@ -110,7 +111,7 @@
 
     <script>
         // Initial Game Setup
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let randomNumber = Math.floor(Math.random() * 1000) + 1;
         let attempts = 0;
 
         // Sound Effects
@@ -141,7 +142,7 @@
         }
 
         function resetGame() {
-            randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a new number
+            randomNumber = Math.floor(Math.random() * 1000) + 1; // Generate a new number
             attempts = 0;
 
             // Reset UI
