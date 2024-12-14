@@ -117,6 +117,15 @@
             }
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-09ZD533KJQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-09ZD533KJQ');
+    </script>
 </head>
 
 <body>
@@ -134,8 +143,8 @@
         let randomNumber = Math.floor(Math.random() * 100) + 1;
         let attempts = 0;
 
-        const errorSound = new Audio('gamefiles/error.mp3'); 
-        const successSound = new Audio('gamefiles/sucess.mp3'); 
+        const errorSound = new Audio('gamefiles/error.mp3');
+        const successSound = new Audio('gamefiles/sucess.mp3');
 
         function checkGuess() {
             const guessedNumber = Number(document.getElementById('guess').value);
@@ -147,24 +156,24 @@
             attempts++;
             if (guessedNumber > randomNumber) {
                 message.textContent = "Lower number, please!";
-                successSound.play(); 
+                successSound.play();
             } else if (guessedNumber < randomNumber) {
                 message.textContent = "Higher number, please!";
-                successSound.play(); 
+                successSound.play();
             } else {
                 message.textContent = "🎉 Congrats! You guessed it!";
                 attemptsDisplay.textContent = `It took you ${attempts} attempts.`;
-                guessBtn.classList.add("hidden"); 
-                resetBtn.classList.remove("hidden"); 
-                errorSound.play(); 
+                guessBtn.classList.add("hidden");
+                resetBtn.classList.remove("hidden");
+                errorSound.play();
             }
         }
 
         function resetGame() {
-            randomNumber = Math.floor(Math.random() * 100) + 1; 
+            randomNumber = Math.floor(Math.random() * 100) + 1;
             attempts = 0;
 
-         
+
             document.getElementById('message').textContent = "";
             document.getElementById('attempts').textContent = "";
             document.getElementById('guess').value = "";
