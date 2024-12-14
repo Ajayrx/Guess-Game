@@ -1,6 +1,6 @@
 # Random Number Guessing Game
 
-A simple, fun, and interactive web-based number guessing game. Users can guess a random number between 1 and 1000, with hints provided to guide them. The game is fully responsive and visually appealing, with gradient colors, and a smooth user experience.
+A simple, fun, and interactive web-based number guessing game. Users can guess a random number between 1 and 100, with hints provided to guide them. The game is fully responsive and visually appealing, with gradient colors, and a smooth user experience.
 
 # Features
 
