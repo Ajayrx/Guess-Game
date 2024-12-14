@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
             justify-content: center;
             align-items: center;
         }
+
         .container {
             background: linear-gradient(45deg, rgb(241, 103, 195), rgba(107, 238, 243, 0.71), rgb(246, 89, 89));
             padding: 30px;
@@ -27,14 +29,17 @@
             font-weight: bold;
             transition: transform 0.3s ease;
         }
+
         .container:hover {
             transform: scale(1.05);
         }
+
         h1 {
             font-variant: small-caps;
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
+
         input {
             padding: 12px;
             margin: 15px 0;
@@ -44,6 +49,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
+
         button {
             padding: 12px 25px;
             background: linear-gradient(45deg, #ff416c, #ff4b2b);
@@ -55,13 +61,16 @@
             transition: background 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
+
         button:hover {
             background: linear-gradient(45deg, #ff4b2b, #ff416c);
             transform: translateY(-2px);
         }
+
         .hidden {
             display: none;
         }
+
         .message {
             margin-top: 15px;
             font-size: 18px;
@@ -72,9 +81,11 @@
             h1 {
                 font-size: 24px;
             }
+
             input {
                 font-size: 16px;
             }
+
             button {
                 font-size: 16px;
                 padding: 10px 20px;
@@ -85,12 +96,15 @@
             .container {
                 padding: 20px;
             }
+
             h1 {
                 font-size: 20px;
             }
+
             input {
                 font-size: 14px;
             }
+
             button {
                 font-size: 14px;
                 padding: 8px 15px;
@@ -98,6 +112,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Random Number Guessing Game</h1>
@@ -111,12 +126,13 @@
 
     <script>
         // Initial Game Setup
+        // Initial Game Setup
         let randomNumber = Math.floor(Math.random() * 100) + 1;
         let attempts = 0;
 
         // Sound Effects
-        const errorsound = new Audio('error.mp3');
-        const sucesssound = new Audio('sucess.mp3');
+        const errorSound = new Audio('error.mp3'); // Correct capitalization
+        const successSound = new Audio('sucess.mp3'); // Corrected from 'sucesssound' to 'successSound'
 
         function checkGuess() {
             const guessedNumber = Number(document.getElementById('guess').value);
@@ -128,16 +144,16 @@
             attempts++;
             if (guessedNumber > randomNumber) {
                 message.textContent = "Lower number, please!";
-                errorsound.play();
+                errorSound.play(); // Corrected sound variable name
             } else if (guessedNumber < randomNumber) {
                 message.textContent = "Higher number, please!";
-                errorsound.play();
+                errorSound.play(); // Corrected sound variable name
             } else {
                 message.textContent = "🎉 Congrats! You guessed it!";
                 attemptsDisplay.textContent = `It took you ${attempts} attempts.`;
                 guessBtn.classList.add("hidden"); // Hide the Guess button
                 resetBtn.classList.remove("hidden"); // Show the Reset button
-                successsound.play();
+                successSound.play(); // Corrected sound variable name
             }
         }
 
@@ -152,6 +168,8 @@
             document.getElementById('guess-btn').classList.remove("hidden");
             document.getElementById('reset-btn').classList.add("hidden");
         }
+
     </script>
 </body>
+
 </html>
