@@ -124,7 +124,10 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'G-09ZD533KJQ');
+        gtag('config', 'G-XXXXXXXXXX', {
+            sessionTimeout: 1440 // Set timeout in minutes (24 hours)
+        });
+
     </script>
 </head>
 
