@@ -101,7 +101,7 @@
 <body>
     <div class="container">
         <h1>Random Number Guessing Game</h1>
-        <p>Guess the number between <strong>1</strong> and <strong>1000</strong>.</p>
+        <p>Guess the number between <strong>1</strong> and <strong>100</strong>.</p>
         <input type="number" id="guess" placeholder="Enter your guess">
         <button id="guess-btn" onclick="checkGuess()">Guess</button>
         <button id="reset-btn" class="hidden" onclick="resetGame()">Play Again</button>
@@ -115,8 +115,8 @@
         let attempts = 0;
 
         // Sound Effects
-        const successSound = new Audio('error.mp3');
-        const errorSound = new Audio('sucess.mp3');
+        const errorSound = new Audio('error.mp3');
+        const sucessSound = new Audio('sucess.mp3');
 
         function checkGuess() {
             const guessedNumber = Number(document.getElementById('guess').value);
