@@ -9,7 +9,7 @@ Interactive Gameplay: Players receive feedback ("Higher" or "Lower") based on th
 # How to Play
 
 Open the game in a web browser.
-Enter a number between 1 and 1000 in the input field.
+Enter a number between 1 and 100 in the input field.
 Press the "Guess" button.
 Follow the hints ("Higher" or "Lower") to find the correct number.
 Once guessed correctly, you'll see the number of attempts it took to win.
