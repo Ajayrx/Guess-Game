@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Number Guessing Game</title>
     <style>
-        /* General styling */
+        
         body {
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
@@ -59,10 +59,10 @@
         button {
             font-family: 'Courier New', Courier, monospace;
             font-weight: bold;
-            padding: 12px 25px;
+            padding: 10px 30px;
             background: linear-gradient(45deg, #ff416c, #ff4b2b);
             color: white;
-            border: none;
+            border: whitesmoke;
             border-radius: 5px;
             cursor: pointer;
             font-size: 18px;
@@ -86,7 +86,7 @@
             text-shadow: 1px 1px 2px rgba(48, 46, 46, 0.4);
         }
 
-        /* Leaderboard styling */
+
         table {
             margin: 20px auto;
             border-collapse: collapse;
@@ -94,22 +94,22 @@
             max-width: 400px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            border-radius: 5px 58px;
+            border-radius: 15px 15px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         table th,
         table td {
-            padding: 10px 13px;
+            padding: 10px 20px;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         table th {
             background: linear-gradient(45deg, #f18b79, #f6849f);
-            padding: 8px 33px;
-            border-radius: 5px 60px;
+            padding: 8px 8px;
+            border-radius: 38px 38px;
             font-weight: bold;
         }
 
@@ -117,7 +117,6 @@
             border-bottom: none;
         }
 
-        /* Modal styling */
         .modal {
             position: fixed;
             top: 0;
@@ -184,12 +183,12 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Player data will be dynamically added here -->
+               
             </tbody>
         </table>
     </div>
 
-    <!-- Modal for Name Input -->
+   
     <div id="name-modal" class="modal">
         <div class="modal-content">
             <h2>Congratulations!</h2>
@@ -227,7 +226,7 @@
                 successSound.play();
                 resetBtn.classList.remove("hidden");
 
-                // Show the modal
+              
                 setTimeout(() => {
                     showModal();
                 }, 1000);
@@ -249,7 +248,7 @@
             saveLeaderboard(leaderboard);
             updateLeaderboardDisplay();
 
-            // Close the modal
+           
             document.getElementById('name-modal').classList.remove('active');
             resetGame();
         }
@@ -276,7 +275,7 @@
         function updateLeaderboardDisplay() {
             const leaderboard = getLeaderboard();
 
-            // Sort the leaderboard and take only the top 5 players
+           
             const topPlayers = leaderboard
                 .sort((a, b) => a.attempts - b.attempts)
                 .slice(0, 5);
